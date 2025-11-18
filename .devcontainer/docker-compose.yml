@@ -1,0 +1,30 @@
+name: "graph"
+
+services:
+  dev:
+    container_name: graph-dev
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    ports:
+      - "3000:3000"
+    volumes:
+      - ..:/workspace:cached
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:17
+    container_name: graph-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: donotuseinprod
+      POSTGRES_DB: graph
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
