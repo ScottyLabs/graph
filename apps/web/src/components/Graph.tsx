@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { useMemo, useState } from "react";
+import $api from "@/api/client";
 import CameraControls from "@/components/CameraControls";
 import GraphEdgeDisplay from "@/components/GraphEdgeDisplay";
 import GraphNodeDisplay from "@/components/GraphNodeDisplay";
@@ -10,6 +11,9 @@ import { computeDomeLayout } from "@/utils/layout";
 
 const Graph = () => {
   const [selectedId, setSelectedId] = useState("yh4");
+
+  const { data: hello } = $api.useQuery("get", "/hello");
+  console.log(hello);
 
   // Compute BFS distances and layout
   const distances = useMemo(
