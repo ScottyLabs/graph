@@ -9,7 +9,7 @@
 		"test": "vitest run",
 		"format": "biome format",
 		"lint": "biome lint",
-		"check": "biome check",
+		"check": "tsc -b && biome check",
 		"tsc": "tsc -b"
 	},
 	"dependencies": {
