@@ -1,7 +1,6 @@
 {
   "name": "@graph/server",
   "version": "0.0.0",
-  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -23,5 +22,6 @@
     "server": "dotenv -e .env -- bun run --watch src/server.ts",
     "start": "bun dist/server.js",
     "tsc": "tsc -b"
-  }
+  },
+  "type": "module"
 }

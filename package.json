@@ -24,7 +24,7 @@
     "format": "biome format && turbo run format",
     "lint": "turbo run lint",
     "prepare": "husky",
-    "syncpack": "syncpack format && syncpack lint",
+    "syncpack": "syncpack lint",
     "syncpack:fix": "syncpack fix",
     "syncpack:update": "syncpack update",
     "tsc": "turbo run tsc"
