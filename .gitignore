@@ -1,11 +1,15 @@
+# Dependency directories
+node_modules/
+
+# Build
+dist/
+build/
+
+# Environment variables
+.env
+
+# Misc
 .DS_Store
-node_modules
 .turbo
 *.log
-dist
-dist-ssr
 *.local
-.env
-.cache
-server/dist
-public/dist
