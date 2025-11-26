@@ -7,7 +7,9 @@ export const computeDomeLayout = (
 ): Record<string, [number, number, number]> => {
 	// Build adjacency list
 	const adjacency = new Map<string, Set<string>>();
-	nodes.forEach((n) => adjacency.set(n.id, new Set()));
+	for (const n of nodes) {
+		adjacency.set(n.id, new Set());
+	}
 	edges.forEach((e) => {
 		adjacency.get(e.from)?.add(e.to);
 		adjacency.get(e.to)?.add(e.from);

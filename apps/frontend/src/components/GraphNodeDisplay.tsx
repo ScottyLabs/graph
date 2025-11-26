@@ -75,6 +75,7 @@ const GraphNodeDisplay = ({
 	return (
 		<group ref={groupRef}>
 			{/* Sphere Node */}
+			{/** biome-ignore lint/a11y/noStaticElementInteractions: <explanation> */}
 			<mesh
 				ref={meshRef}
 				onClick={(e) => {

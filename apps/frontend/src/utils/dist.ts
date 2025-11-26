@@ -9,7 +9,9 @@ export const computeDistances = (
 	edges: GraphEdge[],
 ): Map<string, number> => {
 	const adjacency = new Map<string, Set<string>>();
-	nodes.forEach((n) => adjacency.set(n.id, new Set()));
+	for (const n of nodes) {
+		adjacency.set(n.id, new Set());
+	}
 
 	edges.forEach((e) => {
 		adjacency.get(e.from)?.add(e.to);
