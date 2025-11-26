@@ -36,12 +36,8 @@
     "allowUnreachableCode": false,
     "isolatedModules": true,
     "checkJs": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
     // "exactOptionalPropertyTypes": true,
-    "noImplicitReturns": true,
-
-    /* From */
-    "noUncheckedSideEffectImports": true,
-    "forceConsistentCasingInFileNames": true
+    // "noImplicitReturns": true
   }
 }
