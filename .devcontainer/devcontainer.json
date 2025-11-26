@@ -16,7 +16,12 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["biomejs.biome", "bradlc.vscode-tailwindcss"],
+      "extensions": [
+        "biomejs.biome",
+        "bradlc.vscode-tailwindcss",
+        "vscode-icons-team.vscode-icons",
+        "davidanson.vscode-markdownlint"
+      ],
       "settings": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
