@@ -22,8 +22,10 @@ jobs:
       - name: Install dependencies and generate OpenAPI spec
         run: |
           bun install
+          cd apps/server
           bun run tsoa
           bun run openapi
+          cd ../../
 
       - name: Check
         run: bun run check
