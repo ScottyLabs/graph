@@ -35,5 +35,5 @@ RUN rm /app/node_modules/swagger-ui-dist/index.html
 # Copy only what's needed to run the server
 COPY --from=builder --chown=server:nodejs /app/apps/server/dist ./apps/server/dist
 
-EXPOSE 80
+EXPOSE 3000
 CMD ["bun", "apps/server/dist/server.js"]
