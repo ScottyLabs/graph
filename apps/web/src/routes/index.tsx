@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAuth, useAutoSignin } from "react-oidc-context";
+import AuthHello from "@/components/AuthHello";
 import Hello from "@/components/Hello";
 
 export const Route = createFileRoute("/")({
@@ -29,5 +30,10 @@ function App() {
     return <div>An error occured</div>;
   }
 
-  return <Hello />;
+  return (
+    <>
+      <Hello />
+      <AuthHello />
+    </>
+  );
 }

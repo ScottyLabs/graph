@@ -23,7 +23,11 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "complexity": {
+        // Conflicts with tsc noPropertyAccessFromIndexSignature
+        "useLiteralKeys": "off"
+      }
     }
   },
   "javascript": {

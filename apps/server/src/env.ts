@@ -5,6 +5,8 @@ import { z } from "zod";
 const envSchema = z.object({
   SERVER_PORT: z.number().default(80),
   ALLOWED_ORIGINS_REGEX: z.string(),
+  AUTH_JWKS_URI: z.url(),
+  AUTH_ISSUER: z.url(),
 });
 
 // Validate `process.env` against our schema and return the result

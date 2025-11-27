@@ -11,7 +11,6 @@ import { errorHandler } from "./middleware/errorHandler";
 import { notFoundHandler } from "./middleware/notFoundHandler";
 
 const app = express();
-app.use(express.json({ limit: "8mb" }));
 
 // Define CORS options
 const corsOptions: CorsOptions = {
