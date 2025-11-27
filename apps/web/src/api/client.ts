@@ -24,7 +24,6 @@ const fetchClient = createFetchClient<paths>({
     if (token) {
       input.headers.set("Authorization", `Bearer ${token}`);
     }
-    console.log("token", token);
     return fetch(input);
   },
 });

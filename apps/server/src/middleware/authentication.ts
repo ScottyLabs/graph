@@ -6,7 +6,7 @@ import jwksClient from "jwks-rsa";
 import env from "../env";
 
 export const BEARER_AUTH = "bearerAuth";
-export const ADMIN_SCOPE = "org:admin";
+export const ADMIN_SCOPE = "graph-admins";
 
 const client = jwksClient({ jwksUri: env.AUTH_JWKS_URI });
 

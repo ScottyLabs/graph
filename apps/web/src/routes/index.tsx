@@ -34,6 +34,9 @@ function App() {
     <>
       <Hello />
       <AuthHello />
+      <button type="button" onClick={() => auth.signoutRedirect()}>
+        Sign Out
+      </button>
     </>
   );
 }
