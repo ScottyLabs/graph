@@ -12,6 +12,9 @@ COPY . .
 # Install deps from bun.lock
 RUN bun install --frozen-lockfile
 
+# Generate OpenAPI spec
+RUN cd apps/server && bun run tsoa && bun run openapi
+
 # Build the project
 RUN bun run build --filter=@graph/server...
 
