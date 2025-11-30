@@ -8,7 +8,7 @@ export const userManager = new UserManager({
   client_id: env.VITE_CLIENT_ID,
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
   post_logout_redirect_uri: window.location.origin,
-  userStore: new WebStorageStateStore({ store: window.sessionStorage }),
+  userStore: new WebStorageStateStore({ store: window.localStorage }),
   monitorSession: true, // this allows cross tab login/logout detection
 });
 

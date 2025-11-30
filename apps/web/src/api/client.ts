@@ -6,7 +6,7 @@ import type { paths } from "../../../server/build/swagger.d.ts";
 
 // https://www.npmjs.com/package/react-oidc-context section "Call a protected API"
 function getUser() {
-  const oidcStorage = sessionStorage.getItem(
+  const oidcStorage = localStorage.getItem(
     `oidc.user:${env.VITE_AUTHORITY}:${env.VITE_CLIENT_ID}`,
   );
   if (!oidcStorage) {
