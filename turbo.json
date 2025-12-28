@@ -11,17 +11,22 @@
       "cache": false,
       "persistent": true
     },
-    "format": {
-      "cache": false
+    "start": {
+      "dependsOn": ["^start", "^build"],
+      "persistent": true
+    },
+    "format": {},
+    "transit": {
+      "dependsOn": ["^transit"]
     },
     "lint": {
-      "cache": false
+      "dependsOn": ["transit"]
     },
     "tsc": {
-      "cache": false
+      "dependsOn": ["transit"]
     },
     "check": {
-      "cache": false
+      "dependsOn": ["transit"]
     }
   }
 }
