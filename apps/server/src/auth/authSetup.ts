@@ -1,7 +1,6 @@
 // Authentication Setup: https://github.com/panva/openid-client/blob/HEAD/examples/passport.ts
 
 import { RedisStore } from "connect-redis";
-import cookieParser from "cookie-parser";
 import type { Express as ExpressApp } from "express";
 import session from "express-session";
 import * as client from "openid-client";
@@ -37,8 +36,6 @@ export const setupAuth = async (app: ExpressApp) => {
     env.AUTH_CLIENT_ID,
     env.AUTH_CLIENT_SECRET,
   );
-
-  app.use(cookieParser());
 
   // Create and configure Redis client
   const redisClient = createClient({ url: env.REDIS_URL });
