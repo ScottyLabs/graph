@@ -50,6 +50,12 @@ export const setupAuth = async (app: ExpressApp) => {
       saveUninitialized: false,
       resave: true,
       secret: env.AUTH_SESSION_SECRET,
+      cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
+      },
     }),
   );
   app.use(passport.authenticate("session"));
