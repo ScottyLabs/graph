@@ -31,7 +31,7 @@
   "private": true,
   "scripts": {
     "build": "bun build src/server.ts --outdir=dist --target=bun --sourcemap",
-    "check": "tsc -b && biome check",
+    "check": "biome check && tsc -b",
     "dev": "concurrently 'bun run server' 'bun run tsoa:watch'",
     "format": "biome format",
     "lint": "biome lint",

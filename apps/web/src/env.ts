@@ -3,8 +3,6 @@ import { z } from "zod";
 // Define the schema as an object with all of the env
 // variables and their types
 const envSchema = z.object({
-  VITE_AUTHORITY: z.url(),
-  VITE_CLIENT_ID: z.string(),
   VITE_SERVER_URL: z.url(),
 });
 
