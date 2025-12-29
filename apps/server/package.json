@@ -12,7 +12,6 @@
     "openid-client": "^6.8.1",
     "passport": "^0.7.0",
     "redis": "^5.10.0",
-    "swagger-ui-dist": "^5.30.3",
     "swagger-ui-express": "^5.0.1",
     "tsoa": "^6.6.0",
     "zod": "^4.1.13"

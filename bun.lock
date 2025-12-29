@@ -13,6 +13,7 @@
         "husky": "^9.1.7",
         "syncpack": "^13.0.4",
         "turbo": "^2.6.1",
+        "typescript": "^5.9.3",
       },
     },
     "apps/server": {
@@ -29,7 +30,6 @@
         "openid-client": "^6.8.1",
         "passport": "^0.7.0",
         "redis": "^5.10.0",
-        "swagger-ui-dist": "^5.30.3",
         "swagger-ui-express": "^5.0.1",
         "tsoa": "^6.6.0",
         "zod": "^4.1.13",
@@ -81,7 +81,6 @@
         "@vitejs/plugin-react": "^5.0.4",
         "babel-plugin-react-compiler": "^1.0.0",
         "jsdom": "^27.0.0",
-        "typescript": "^5.7.2",
         "vite": "^7.1.7",
         "vitest": "^3.0.5",
         "web-vitals": "^5.1.0",
