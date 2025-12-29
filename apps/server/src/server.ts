@@ -25,7 +25,7 @@ const server = http.createServer(app);
 // Swagger
 const file = fs.readFileSync("./build/swagger.yaml", "utf8");
 const swaggerDocument = YAML.parse(file) as JsonObject;
-// https://github.com/scottie1984/swagger-ui-express/issues/114#issuecomment-1345997964
+// https://github.com/scottie1984/swagger-ui-express/issues/114#issuecomment-566022730
 app.use(
   "/swagger",
   express.static("./node_modules/swagger-ui-dist", { index: false }),

@@ -35,4 +35,4 @@ COPY --from=builder --chown=server:nodejs /app/apps/server/dist ./apps/server/di
 COPY --from=builder --chown=server:nodejs /app/apps/server/node_modules/swagger-ui-dist /app/node_modules/swagger-ui-dist
 
 EXPOSE 3000
-CMD ["bun", "apps/server/dist/server.js"]
+CMD ["cat", "node_modules/swagger-ui-dist/swagger-ui-bundle.js"]
