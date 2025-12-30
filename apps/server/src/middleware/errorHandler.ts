@@ -10,9 +10,8 @@ export class HttpError extends Error {
 }
 
 export class AuthenticationError extends HttpError {
-  constructor(message: string) {
-    super(401, message);
-    this.name = "Unauthorized";
+  constructor() {
+    super(401, "Unauthenticated");
   }
 }
 
@@ -26,7 +25,6 @@ export class AuthorizationError extends HttpError {
 export class InternalServerError extends HttpError {
   constructor(message: string) {
     super(500, message);
-    this.name = "Internal Server Error";
   }
 }
 

@@ -54,7 +54,7 @@ const validateOidc = (
   scopes?: string[],
 ) => {
   if (!request.user) {
-    const err = new AuthenticationError("User not authenticated");
+    const err = new AuthenticationError();
     request.authErrors?.push(err);
     return reject(err);
   }
@@ -79,7 +79,7 @@ const verifyBearerAuth = async (
 ) => {
   const token = request.headers.authorization?.split(" ")[1];
   if (!token) {
-    const err = new AuthenticationError("No token provided");
+    const err = new AuthenticationError();
     request.authErrors?.push(err);
     return reject(err);
   }
@@ -92,19 +92,19 @@ const verifyBearerAuth = async (
         callback(null, signingKey);
       });
     },
-    { issuer: env.AUTH_ISSUER },
+    { issuer: env.AUTH_ISSUER, audience: env.AUTH_CLIENT_ID },
     (error, decoded) => {
       // Check if the token is valid
       if (error) {
         console.error("Authentication error:", error.message);
-        const err = new AuthenticationError("Invalid token");
+        const err = new AuthenticationError();
         request.authErrors?.push(err);
         return reject(err);
       }
 
       // Check if the token format is valid
       if (!decoded || typeof decoded !== "object") {
-        const err = new AuthenticationError("Invalid token format");
+        const err = new AuthenticationError();
         request.authErrors?.push(err);
         return reject(err);
       }
