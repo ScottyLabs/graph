@@ -46,24 +46,23 @@ export function expressAuthentication(
 }
 
 // Verify OpenID Connect Authentication by checking the user object and scopes
-// User object is set by the passport.js middleware
 const validateOidc = (
   request: express.Request,
   reject: (value: unknown) => void,
   resolve: (value: unknown) => void,
   scopes?: string[],
 ) => {
+  // Check if the user is authenticated
+  // (user object is set by the passport.js middleware)
   if (!request.user) {
     const err = new AuthenticationError();
     request.authErrors?.push(err);
     return reject(err);
   }
 
-  // Check if the token contains the required scopes
-  for (const scope of scopes ?? []) {
-    if (!request.user.groups?.includes(scope)) {
-      return scopeValidationError(request, reject);
-    }
+  // Check if the user has any of the required scopes
+  if (!hasAnyScope(request.user.groups, scopes)) {
+    return scopeValidationError(request, reject);
   }
 
   return resolve({ ...request.user });
@@ -109,16 +108,30 @@ const verifyBearerAuth = async (
         return reject(err);
       }
 
-      // Check if the token contains the required scopes
-      for (const scope of scopes ?? []) {
-        if (!decoded["groups"]?.includes(scope)) {
-          return scopeValidationError(request, reject);
-        }
+      // Check if the token contains any of the required scopes
+      if (!hasAnyScope(decoded["groups"], scopes)) {
+        return scopeValidationError(request, reject);
       }
 
       return resolve({ ...decoded });
     },
   );
+};
+
+// Verify if the groups contain ANY of the required scopes
+const hasAnyScope = (groups?: string[], scopes?: string[]) => {
+  // If no scopes are required, return true
+  if (!scopes) {
+    return true;
+  }
+
+  // If no groups are present, return false
+  if (!groups) {
+    return false;
+  }
+
+  // Check if any of the groups contain any of the required scopes
+  return groups.some((group) => scopes.includes(group));
 };
 
 const scopeValidationError = (
