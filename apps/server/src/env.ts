@@ -12,6 +12,7 @@ const envSchema = z.object({
   AUTH_SESSION_SECRET: z.string(),
   AUTH_JWKS_URI: z.url(),
   REDIS_URL: z.string(),
+  APP_ENV: z.enum(["development", "production"]).default("development"),
 });
 
 // Validate `process.env` against our schema and return the result

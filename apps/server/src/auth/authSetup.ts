@@ -44,9 +44,6 @@ export const setupAuth = async (app: ExpressApp) => {
   // Initialize session store with Redis
   const redisStore = new RedisStore({ client: redisClient });
 
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.NODE_ENV === "production");
-
   app.use(
     session({
       store: redisStore,
@@ -55,7 +52,7 @@ export const setupAuth = async (app: ExpressApp) => {
       secret: env.AUTH_SESSION_SECRET,
       cookie: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: env.APP_ENV === "production",
         sameSite: "lax",
         maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
       },
