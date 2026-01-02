@@ -13,6 +13,8 @@ import passport, { type AuthenticateOptions } from "passport";
 import { createClient } from "redis";
 import env from "../env";
 
+console.log(env.APP_ENV);
+
 declare global {
   namespace Express {
     interface User {
