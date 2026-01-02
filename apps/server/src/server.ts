@@ -12,6 +12,15 @@ import { notFoundHandler } from "./middleware/notFoundHandler";
 
 const app = express();
 
+// Debugging middleware for logging the forwarded headers
+app.use((req, res, next) => {
+  console.log("X-Forwarded-For:", req.headers["x-forwarded-for"]);
+  console.log("X-Forwarded-Proto:", req.headers["x-forwarded-proto"]);
+  console.log("req.ip:", req.ip);
+  console.log("req.secure:", req.secure);
+  next();
+});
+
 // Define CORS options
 const corsOptions: CorsOptions = {
   origin: env.ALLOWED_ORIGINS_REGEX.split(",").map(
