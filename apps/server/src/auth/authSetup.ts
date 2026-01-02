@@ -44,6 +44,9 @@ export const setupAuth = async (app: ExpressApp) => {
   // Initialize session store with Redis
   const redisStore = new RedisStore({ client: redisClient });
 
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.NODE_ENV === "production");
+
   app.use(
     session({
       store: redisStore,
