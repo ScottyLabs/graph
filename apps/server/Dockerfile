@@ -2,6 +2,9 @@
 FROM oven/bun:latest AS base
 WORKDIR /app
 
+# Set environment for all stages
+ENV NODE_ENV=production
+
 # Build stage
 FROM base AS builder
 WORKDIR /app
