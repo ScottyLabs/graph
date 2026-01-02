@@ -2,9 +2,6 @@
 FROM oven/bun:latest AS base
 WORKDIR /app
 
-# Set environment for all stages
-ENV NODE_ENV=production
-
 # Build stage
 FROM base AS builder
 WORKDIR /app
@@ -36,6 +33,8 @@ COPY --from=builder --chown=server:nodejs /app/apps/server/build/swagger.yaml ./
 # Copy only what's needed to run the server
 COPY --from=builder --chown=server:nodejs /app/apps/server/dist ./apps/server/dist
 COPY --from=builder --chown=server:nodejs /app/apps/server/node_modules/swagger-ui-dist /app/node_modules/swagger-ui-dist
+
+ENV NODE_ENV=production
 
 EXPOSE 3000
 CMD ["bun", "apps/server/dist/server.js"]
